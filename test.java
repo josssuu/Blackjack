@@ -1,5 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class test {
     public static void main(String[] args) {
-        int a = 5;
+        List<String> list = new ArrayList<>();
+        list.add("asdasdasd");
+        System.out.println(list);
     }
 }

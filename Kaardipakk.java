@@ -1,29 +1,38 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+
+import static java.util.Collections.shuffle;
 
 public class Kaardipakk {
-    List<String> pakk;
+    List<Kaart> pakk;
 
     public Kaardipakk() {
-        //this.pakk
+        this.pakk = uus_pakk();
     }
 
     public String toString() {
         String kaardid = "";
-        for (String kaart : pakk) {
+        for (Kaart kaart : pakk) {
             kaardid += kaart + " ";
         }
         return kaardid;
     }
 
-    public Kaardipakk uus_pakk() {
-        // Genereerib uue kaardipaki
+    public List<Kaart> uus_pakk() {
+        List<Kaart> tulemus = new ArrayList<>();
         String[] mastid = {"♠","♥","♣","♦"};
         String[] numbrid = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
-        return new Kaardipakk();
+        for (int i = 0; i < mastid.length; i++) {
+            for (int j = 0; j < numbrid.length; j++) {
+                tulemus.add(new Kaart(mastid[i],numbrid[j]));
+            }
+        }
+        return tulemus;
     }
 
-    private void sega_kaardid(Kaardipakk kaardid){
-        // Segab suvaliselt paki ära
+    public void sega_kaardid(){
+        shuffle(this.pakk);
     }
 
     public void eemalda_kaart(String kaart) {

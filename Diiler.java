@@ -2,15 +2,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Diiler {
-    List<String> käsi;
+    private List<Kaart> käsi;
 
     public Diiler() {
         this.käsi = new ArrayList<>();
     }
 
-    public String käik() {
-        // tagastab mis käigu diiler teeb
-        return "";
+    public void võtaKaart(Kaart kaart) {
+        this.käsi.add(kaart);
+    }
+
+    public void näitaAlguseKaarte() {
+        System.out.println(käsi.get(0) + "|*| ");
+    }
+
+    public void näitaKõikiKaarte() {
+        StringBuilder tulemus = new StringBuilder();
+        for (Kaart kaart : käsi) {
+            tulemus.append(kaart + " ");
+        }
+        System.out.println(tulemus.toString());
     }
 
     private boolean tomba_uus_kaart() {

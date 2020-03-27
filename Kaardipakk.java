@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
 
 import static java.util.Collections.shuffle;
 
@@ -35,13 +34,14 @@ public class Kaardipakk {
         shuffle(this.pakk);
     }
 
-    public void eemalda_kaart(String kaart) {
-        // Eemaldab pakist etteantud kaardi
+    public void eemalda_kaart(Kaart kaart) {
+        this.pakk.remove(kaart);
     }
 
-    public String anna_kaart() {
-        // tagastab pakist suvalise kaardi ja eemaldab selle sealt
-        return "suvaline kaart";
+    public Kaart anna_kaart() {
+        Kaart antav = this.pakk.get(0);
+        eemalda_kaart(antav);
+        return antav;
     }
 
 

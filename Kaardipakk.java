@@ -44,7 +44,12 @@ public class Kaardipakk {
         return antav;
     }
 
+    public List<Kaart> getPakk() {
+        return pakk;
+    }
 
-
+    public void setPakk(List<Kaart> pakk) {
+        this.pakk = pakk;
+    }
 
 }

@@ -21,13 +21,41 @@ public class Diiler {
         for (Kaart kaart : käsi) {
             tulemus.append(kaart + " ");
         }
-        System.out.println(tulemus.toString());
+        System.out.print(tulemus.toString());
     }
 
-    private boolean tomba_uus_kaart() {
-        // Diiler võtab kaardi kui summa on 16 või väiksem
-        // kui summa on 17 või suurem siis ei võta kaarti
+    public int käe_väärtus() {
+        int summa = 0;
+        for (Kaart kaart : this.käsi) {
+            summa += kaart.getVäärtus();
+        }
+        return summa;
+    }
 
-        return false;
+    public int diileriKäik (Kaardipakk k) throws Exception {
+        System.out.println("Diiler teeb oma käigu...");
+
+        System.out.print("Diileri kaardid: ");
+        näitaKõikiKaarte();
+        Kaart võetav;
+
+        while (käe_väärtus() < 17) {
+            Thread.sleep(1000);
+            võetav = k.anna_kaart();
+            võtaKaart(k.anna_kaart());
+            System.out.print(võetav + " ");
+        }
+
+        System.out.println();
+
+        return käe_väärtus();
+    }
+
+    public List<Kaart> getKäsi() {
+        return käsi;
+    }
+
+    public void setKäsi(List<Kaart> käsi) {
+        this.käsi = käsi;
     }
 }

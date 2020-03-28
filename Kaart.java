@@ -16,6 +16,10 @@ public class Kaart {
         return väärtus;
     }
 
+    public String getNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return "|" + this.mast + this.number + "|";

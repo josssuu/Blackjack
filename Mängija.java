@@ -18,34 +18,39 @@ public class Mängija {
         this.käsi = new ArrayList<>();
     }
 
-    public boolean omabVõiduKätt() {
-        boolean ässKäes = false;
-        for (Kaart kaart : this.käsi) {
-            if (kaart.getNumber().equals("A")) ässKäes = true;
-        }
-        if (käe_väärtus() == 21 || (käe_väärtus() == 11 && ässKäes)) {
-            return true;
-        }
-        return false;
-    }
-
     public void võtaKaart(Kaart kaart) {
         this.käsi.add(kaart);
     }
 
     public void näitaKaarte() {
-        StringBuilder tulemus = new StringBuilder();
+        System.out.print(nimi + " kaardid: ");
         for (Kaart kaart : käsi) {
-            tulemus.append(kaart + " ");
+            System.out.print(kaart + " ");
         }
-        System.out.println(tulemus.toString());
+        System.out.print("\n");
     }
 
-    public int käe_väärtus() {
+    public int käeVäärtus() {
         int summa = 0;
+        int ässadeArv = 0;
         for (Kaart kaart : käsi) {
-            summa += kaart.getVäärtus();
+            if (kaart.getNumber().equals("A")) {
+                ässadeArv++;
+            }
+            else {
+                summa += kaart.getVäärtus();
+            }
         }
+
+        for (int i = 0; i < ässadeArv; i++) {
+            if (summa > 11) {
+                summa++;
+            }
+            else {
+                summa += 11;
+            }
+        }
+
         return summa;
     }
 

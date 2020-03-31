@@ -24,31 +24,46 @@ public class Diiler {
         System.out.print(tulemus.toString());
     }
 
-    public int käe_väärtus() {
+    public int käeVäärtus() {
         int summa = 0;
-        for (Kaart kaart : this.käsi) {
-            summa += kaart.getVäärtus();
+        int ässadeArv = 0;
+        for (Kaart kaart : käsi) {
+            if (kaart.getNumber().equals("A")) {
+                ässadeArv++;
+            }
+            else {
+                summa += kaart.getVäärtus();
+            }
         }
+
+        for (int i = 0; i < ässadeArv; i++) {
+            if (summa > 11) {
+                summa++;
+            }
+            else {
+                summa += 11;
+            }
+        }
+
         return summa;
     }
 
-    public int diileriKäik (Kaardipakk k) throws Exception {
+    public void käik(Kaardipakk k) throws Exception {
         System.out.println("Diiler teeb oma käigu...");
 
         System.out.print("Diileri kaardid: ");
         näitaKõikiKaarte();
         Kaart võetav;
 
-        while (käe_väärtus() < 17) {
+        while (käeVäärtus() < 17) {
             Thread.sleep(1000);
             võetav = k.anna_kaart();
-            võtaKaart(k.anna_kaart());
+            võtaKaart(võetav);
             System.out.print(võetav + " ");
         }
 
         System.out.println();
 
-        return käe_väärtus();
     }
 
     public List<Kaart> getKäsi() {

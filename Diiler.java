@@ -19,7 +19,7 @@ public class Diiler {
     public void näitaKõikiKaarte() {
         StringBuilder tulemus = new StringBuilder();
         for (Kaart kaart : käsi) {
-            tulemus.append(kaart + " ");
+            tulemus.append(kaart).append(" ");
         }
         System.out.print(tulemus.toString());
     }
@@ -64,10 +64,6 @@ public class Diiler {
 
         System.out.println();
 
-    }
-
-    public List<Kaart> getKäsi() {
-        return käsi;
     }
 
     public void setKäsi(List<Kaart> käsi) {

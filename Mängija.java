@@ -54,10 +54,6 @@ public class Mängija {
         return summa;
     }
 
-    public void uuendaRahakotti(int summa) {
-        this.raha += summa;
-    }
-
     public void setNimi(String nimi) {
         this.nimi = nimi;
     }

@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -38,6 +41,18 @@ public class Main {
         return true;
     }
 
+    static void väljastaReeglid() {
+        try {
+            Scanner sc = new Scanner(new File("src/reeglid.txt"), StandardCharsets.UTF_8);
+            while (sc.hasNextLine()) {
+                System.out.println(sc.nextLine());
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     static void näitaMenüüd() {
         if (!reeglidKuvatud) {
             System.out.println("Sisesta \"R\" kui soovid ekraanil näha reegleid.");
@@ -46,20 +61,22 @@ public class Main {
         System.out.println("Sisesta oma kasutajanimi, kui soovid uut mängu alustada.");
 
         String sisend = sisendiLugeja.nextLine();
-        if (sisend.toUpperCase().equals("R")) {
-            //1) väljastatakse BlackJacki mängu reeglid
-            //2) väljastatakse selle programmi reeglid (näiteks mida tuleb tegevuseks sisestada)
-            System.out.println("-----------------------------------------------------------------");
-            System.out.println("//Siin on kirjas kõik reeglid");
-            System.out.println("-----------------------------------------------------------------");
-            reeglidKuvatud = true;
-        } else if (sisend.toUpperCase().equals("V")) {
-            System.out.println("\nMäng on lõppenud!");
-            run = false;
-        } else {
-            mängija.setNimi(sisend);
-            mäng = true;
-            menüü = false;
+        switch (sisend.toUpperCase()) {
+            case "R":
+                //1) väljastatakse BlackJacki mängu reeglid
+                //2) väljastatakse selle programmi reeglid (näiteks mida tuleb tegevuseks sisestada)
+                väljastaReeglid();
+                reeglidKuvatud = true;
+                break;
+            case "V":
+                System.out.println("\nMäng on lõppenud!");
+                run = false;
+                break;
+            default:
+                mängija.setNimi(sisend);
+                mäng = true;
+                menüü = false;
+                break;
         }
     }
 

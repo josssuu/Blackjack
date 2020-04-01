@@ -37,7 +37,7 @@ public class Diiler {
         }
 
         for (int i = 0; i < ässadeArv; i++) {
-            if (summa > 11) {
+            if (summa >= 11) {
                 summa++;
             }
             else {

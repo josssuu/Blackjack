@@ -1,0 +1,52 @@
+Projekti kirjeldus:
+
+Autorid: Joosep Postov, Robert Joonas
+
+Projektiks on klassikaline BlackJacki mäng, kus mängijal on algselt 100 eurot.
+Seda summat saab ta suurendada või selle maha mängida. Mängu käivitades tekib
+mängijale ette "menüü" kust ta saab sisestada oma soovitud tegevuse (näiteks
+"välju" või "reeglid"). Reeglite all on kirjas ka see, kuidas sisestada antud
+mängus konsoolile tegevusi. Programm lõpetab töö, kui mängijal saab raha otsa,
+mängija saavutab liiga suure summa (10 000) või mängija sisestab "välju".
+
+Kokku sisaldab projekt 5 klassi:
+1) Kaart - kirjeldab ühte kaarti millel on mast, number (või pilt) ja arvuline väärtus
+2) Kaardipakk - kirjeldab Kaart tüüpi isendite listi. Seal on näiteks meetodid 
+	uus_pakk, sega_kaardid, anna_kaart (tagastab listi esimese kaarti)
+3) Mängija - kirjeldab mängija nime, seda, mis kaartid on parajasti tal käes ja ka seda,
+mis on tema rahakoti väärtus. Sisaldab näiteks meetodit käe_väärtus (mitu punkti käes).
+4) Diiler - Sarnaneb klassile mängija, mõningate erinevustega (Diileril pole
+rahakotti, diileril on meetod diileriKäik (kas võtab kaarti või mitte)).
+Diileri ainus isendiväli ongi käsi ehk kaartide list.
+5) Main - peaklass, kus toimub kogu mängu käik. Sisaldab väga palju erinevaid meetodeid,
+et kood oleks paremini mõistetavam.
+
+Projekti protsess:
+1) kondikava koostamine ja klasside paika panek (Joosep)
+2) erinevate klasside esialgne täitmine isendiväljade, konstruktorite ja meetoditega (Robert) (6h)
+3) Main klassis mängu põhitsükli esialgne struktureerimine (Robert) (4h)
+4) reeglid.txt kirjutamine (Robert) (1h)
+5) abiklasside ja mängu põhitsükli täiendamine, mõistetavamaks muutmine (Joosep)
+6) Vigade otsimine ja nende parandamine (mõlemad)
+
+Mured ja probleemid:
+Üldjuhul said küsimused kiiresti Google või sõbra abil vastuse ning kaua aega pead vaevama
+ei pidanud. Tooks välja ainsa "murekohana" ässa kui topeltväärtusega kaarti käsitlemise, mis
+ei võtnud tegelikult ka väga palju aega, kuid pani päris palju mõtlema. Lisaks võttis veel
+kaua aega alguses terve projekti struktureerimine ja mõtlemine, kuidas mingid klassid võiksid
+välja näha.
+
+Hinnang endale:
+Usume, et saime projektiga suurepäraselt hakkama ja arenesime ka päris palju selle töö käigus.
+
+Programmi töö testimine:
+Kasutasime vahetevahel testprogrammi, et kontrollida erinevate meetodite tagastatavaid väärtusi
+ja nende õigsust. Lõpptulemust testisime mängides ning kõikvõimalikke variante läbi proovides.
+
+
+
+
+
+
+
+

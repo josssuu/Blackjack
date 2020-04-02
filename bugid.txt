@@ -1,1 +1,2 @@
-polegi vist
+1) võiduteate väljastamine kui esimeste kaartidega blackjack  (done)
+2) igal hetkel välju ei tööta sisendina (nüüd töötab)

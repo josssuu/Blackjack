@@ -43,7 +43,7 @@ public class Main {
 
     static void väljastaReeglid() {
         try {
-            Scanner sc = new Scanner(new File("src/reeglid.txt"), StandardCharsets.UTF_8);
+            Scanner sc = new Scanner(new File("reeglid.txt"), StandardCharsets.UTF_8);
             while (sc.hasNextLine()) {
                 System.out.println(sc.nextLine());
             }
@@ -55,22 +55,22 @@ public class Main {
 
     static void näitaMenüüd() {
         if (!reeglidKuvatud) {
-            System.out.println("Sisesta \"R\" kui soovid ekraanil näha reegleid.");
+            System.out.println("Sisesta \"Reeglid\" kui soovid ekraanil näha reegleid.");
         }
-        System.out.println("Sisesta \"V\" kui soovid mängust väljuda.");
+        System.out.println("Sisesta \"Välju\" kui soovid mängust väljuda.");
         System.out.println("Sisesta oma kasutajanimi, kui soovid uut mängu alustada.");
 
         String sisend = sisendiLugeja.nextLine();
         switch (sisend.toUpperCase()) {
-            case "R":
+            case "REEGLID":
                 //1) väljastatakse BlackJacki mängu reeglid
                 //2) väljastatakse selle programmi reeglid (näiteks mida tuleb tegevuseks sisestada)
                 väljastaReeglid();
                 reeglidKuvatud = true;
                 break;
-            case "V":
+            case "VÄLJU":
                 System.out.println("\nMäng on lõppenud!");
-                run = false;
+                System.exit(0);
                 break;
             default:
                 mängija.setNimi(sisend);
@@ -85,7 +85,10 @@ public class Main {
         while (true) {
             System.out.println("Sisesta oma panus (min: 5) või \"Raha\" kui soovite näha oma rahasummat.");
             String sisend = sisendiLugeja.nextLine();
-            if (sisend.toUpperCase().equals("RAHA")) {
+            if (sisend.toUpperCase().equals("VÄLJU")) {
+                System.out.println("Mäng on lõppenud.");
+                System.exit(0);
+            } else if (sisend.toUpperCase().equals("RAHA")) {
                 System.out.println("Sul on kokku " + mängija.getRaha() + " eurot.");
             } else if (sisend.chars().allMatch(Character::isDigit) && sisend.length() <= 5 && sisend.length() > 0) {
                 if (Integer.parseInt(sisend) >= 5 && Integer.parseInt(sisend) <= mängija.getRaha()) {
@@ -142,7 +145,7 @@ public class Main {
 
     static void kontrolliBlackJacki(int panus) {
         if (mängija.käeVäärtus() == 21) {
-
+            System.out.println("Vedas, said kohe BlackJacki! Võitsid " + panus * 1.5 + " eurot!");
             alustaUutVooru(mängija.getRaha() + (int) (panus * 1.5));
         }
     }
@@ -183,6 +186,9 @@ public class Main {
                     String sisend = sisendiLugeja.nextLine().toUpperCase();
 
                     switch (sisend) {
+                        case "VÄLJU":
+                            System.out.println("Mäng on lõppenud!");
+                            System.exit(0);
                         case "RAHA":
                             väljastaMängijaRaha();
                             break;

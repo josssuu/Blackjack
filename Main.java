@@ -118,8 +118,8 @@ public class Main {
         int diileriKäsi = diiler.käeVäärtus();
         int mängijaKäsi = mängija.käeVäärtus();
 
-        System.out.println("diiler: " + diileriKäsi);
-        System.out.println("mängija: " + mängijaKäsi);
+        //System.out.println("diiler: " + diileriKäsi);
+        //System.out.println("mängija: " + mängijaKäsi);
         if (diileriKäsi < mängijaKäsi || diileriKäsi > 21) {
             System.out.println("Võitsid selle vooru!\n");
             alustaUutVooru(mängija.getRaha() + panus);

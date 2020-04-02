@@ -16,12 +16,11 @@ public class Diiler {
         System.out.println(käsi.get(0) + "|*| ");
     }
 
-    public void näitaKõikiKaarte() {
-        StringBuilder tulemus = new StringBuilder();
+    public void näitaKõikiKaarte() throws Exception{
         for (Kaart kaart : käsi) {
-            tulemus.append(kaart).append(" ");
+            Thread.sleep(1000);
+            System.out.print(kaart + " ");
         }
-        System.out.print(tulemus.toString());
     }
 
     public int käeVäärtus() {
@@ -61,7 +60,7 @@ public class Diiler {
             võtaKaart(võetav);
             System.out.print(võetav + " ");
         }
-
+        Thread.sleep(1000);
         System.out.println();
 
     }
